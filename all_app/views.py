@@ -5,12 +5,12 @@ from django.views import View
 from django.contrib.auth import login, authenticate
 # Create your views here.
 class Home(View):
+    
     def get(self, request):
         form = UserForm(request.POST)
         return render(request, 'index.html', {'form' : form})
+    
     def post(self, request):
-        #povezemo templejt sa indexom
-        #ovde registrujemo
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
@@ -21,13 +21,14 @@ class Home(View):
             login(request, user)
             #print(request.POST.data)
             return HttpResponse("You're registered.")
+        
 class LogIn(View):
+    
     def get(self,request):
         form = LoginForm(request.POST)
         return render(request, 'login.html', {'form' : form})
+    
     def post(self, request):
-        #povezemo templejt sa indexom
-        #ovde registrujemo
         form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
