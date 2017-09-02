@@ -1,0 +1,5 @@
+<input class="uk-input uk-width-1-2" type="text" placeholder="Username" style="width: 100%; margin: 20px 0px; border-radius: 10px;">
+<input class="uk-input uk-width-1-2" type="text" placeholder="Email" style="width: 100%; margin: 20px 0px; border-radius: 10px;">
+<input class="uk-input uk-width-1-2" type="password" placeholder="Password" style="width: 100%; margin: 20px 0px; border-radius: 10px;">
+<button class="uk-button uk-button-default" style="width: 100%; margin: 20px 0px; border-radius: 10px; background-image: linear-gradient(-60deg, #5641db 0%, #1f86ef 100%); color: white; ">Sign Up</button>
+<h5 class="right-sublogo">By signing in you accept<a href="#" class="signInLink"> Terms & Conditions</a></h5>

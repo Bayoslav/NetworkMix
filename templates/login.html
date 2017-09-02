@@ -1,0 +1,13 @@
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+    <p>
+      {{ field.label_tag }}<br>
+      {{ field }}
+      {% if field.help_text %}
+        <small style="color: grey">{{ field.help_text }}</small>
+      {% endif %}
+    </p>
+    {% endfor %}
+    <button class="uk-button uk-button-default" style="width: 100%; margin: 20px 0px; border-radius: 10px; background-image: linear-gradient(-60deg, #5641db 0%, #1f86ef 100%); color: white; ">Sign Up</button>
+  </form>
