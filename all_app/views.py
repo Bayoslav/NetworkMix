@@ -4,6 +4,7 @@ from .forms import UserForm, LoginForm
 from django.views import View
 from django.contrib.auth import login, authenticate
 
+
 class Home(View):
     def get(self, request):
         if request.user.is_authenticated():
@@ -22,7 +23,7 @@ class Home(View):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             #print(request.POST.data)
-            return HttpResponse("You're registered.")
+            return redirect('/')
         else:
             form = UserForm()
         return render(request, 'index.html', {'form': form})
