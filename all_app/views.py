@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import UserForm, LoginForm
 from django.views import View
@@ -6,6 +6,9 @@ from django.contrib.auth import login, authenticate
 
 class Home(View):
     def get(self, request):
+        if request.user.is_authenticated():
+            name = (request.user)
+            return render(request, 'dashboard.html', {'username' : name})
         form = UserForm(request.POST)
         return render(request, 'index.html', {'form' : form})
 
@@ -26,6 +29,9 @@ class Home(View):
 
 class LogIn(View):
     def get(self,request):
+        if request.user.is_authenticated():
+            name = (request.user)
+            return render(request, 'dashboard.html', {'username' : name})
         form = LoginForm(request.POST)
         return render(request, 'login.html', {'form': form})
 
@@ -36,10 +42,15 @@ class LogIn(View):
             raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            #print(request.data)
             return render(request, 'dashboard.html')
         else:
             return HttpResponse("You failed")
 
 class Dashboard(View):
     def get(self, request):
-        return render(request, 'dashboard.html')
+        if request.user.is_authenticated():
+            name = (request.user)
+            return render(request, 'dashboard.html', {'username' : name})
+        else:
+            return redirect('/login/')
