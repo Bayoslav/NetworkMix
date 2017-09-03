@@ -7,7 +7,7 @@ class UserForm(forms.ModelForm):
     email = forms.CharField(required=True, widget=forms.TextInput(attrs={'class' : 'uk-input uk-width-1-2', 'style' : 'width: 100%; margin: 20px 0px; border-radius: 10px;'}))
     password = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class' : 'uk-input uk-width-1-2', 'style' : 'width: 100%; margin: 20px 0px; border-radius: 10px;'}))
     def save(self, commit=True):
-        user = super(UpForm, self).save(commit=False)
+        user = super(UserForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
