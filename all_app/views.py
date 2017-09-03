@@ -36,6 +36,10 @@ class LogIn(View):
             raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return HttpResponse("You're logged in Now")
+            return render(request, 'dashboard.html')
         else:
             return HttpResponse("You failed")
+
+class Dashboard(View):
+    def get(self, request):
+        return render(request, 'dashboard.html')
