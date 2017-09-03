@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from datetime import datetime
-import json
 from django.db import models
 
 # Create your models here.
@@ -32,7 +31,6 @@ class UserManager(BaseUserManager):
         user.save()
 
         return user
-
 
 class User(AbstractBaseUser):
     username = models.CharField(unique=True, max_length=50)
