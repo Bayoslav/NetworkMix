@@ -1,5 +1,41 @@
-<h1>Dashboard</h1>
+{% extends 'base.html' %}
 
-{{ username }}
+{% block style %}
+<style>
+    #outPopUp {
+      position: absolute;
+      width: 700px;
+      height: 200px;
+      z-index: 15;
+      top: 50%;
+      left: 50%;
+      margin: -375px 0 0 -350px;
+      text-align: center;
+    }
 
-<a href="/logout">logout</a>
+    .up {
+        height: 50%;
+        width: 100%;
+        background-color: #FBFBFB;
+    }
+
+    .down {
+        height: 50%;
+        width: 100%;
+        background-image: linear-gradient(-60deg, #5641db 0%, #1f86ef 100%);
+    }
+</style>
+{% endblock %}
+
+{% block app %}
+<div class="up">
+    <div id="outPopUp">
+        <h1 style="font-weight: 600; color: #95989A; font-size: 72">all</h1>
+        <h3 style="color: #95989A">Welcome {{ username }} to your dashboard!</h3>
+        <h6 style="color: #95989A">Start making connections with your social network accounts. <br> You can add it here or later in settings.</h6>
+        <a style="color: #95989A" href="/logout">Logout</a>
+    </div>
+</div>
+<div class="down">
+</div>
+{% endblock %}
