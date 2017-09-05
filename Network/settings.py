@@ -57,7 +57,7 @@ ROOT_URLCONF = 'Network.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Pavle/Desktop/NetworkMix/templates'],
+        'DIRS': ['C:/Users/Pavle/Desktop/NetworkMix/templates', 'C:/Users/mahibul.hasan/Documents/PythonProjects/NetworkMix/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

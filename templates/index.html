@@ -56,10 +56,32 @@
             <h5 class="right-sublogo">You already have account? <a href="/login" class="signInLink">Sign in.</a></h5>
             <h2>Sign up</h2>
     <form method="post">
-      {% csrf_token %}
+        {% if error %}
+
+            {% if form.errors %}
+            <div class="alert alert-error">
+                <h4>Please fix the following errors</h4>
+                <ul>
+                    {% for field in form %}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <li><a href="#id_{{ field.name }}" class="uk-form-danger"><strong>{{ error|escape }}</strong></a></li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% if form.non_field_errors %}
+                    {{ form.non_field_errors }}
+                {% endif %}
+            </div>
+            {% endif %}
+
+        {%endif%}
+
+        {% csrf_token %}
       {% for field in form %}
         <p>
-          {{ field.label_tag }}<br>
+          {{ field.label_tag }} <br>
           {{ field }}
           {% if field.help_text %}
             <small style="color: grey">{{ field.help_text }}</small>

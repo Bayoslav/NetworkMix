@@ -17,6 +17,11 @@
 <div id="outPopUp">
     <h1 style="font-weight: 600; font-size: 80; color: #95989A; margin-bottom: 50px;">all.</h1>
     <form method="post">
+
+        {% if error %}
+            <p class="uk-form-danger"><strong> {{ error }} </strong></p>
+        {% endif %}
+
       {% csrf_token %}
       {% for field in form %}
         <p>
