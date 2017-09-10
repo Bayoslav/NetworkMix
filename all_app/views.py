@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from .forms import UserForm, LoginForm
 from django.views import View
 from django.contrib.auth import login, authenticate
@@ -60,3 +60,8 @@ class Dashboard(View):
             return render(request, 'dashboard.html', {'username' : name})
         else:
             return redirect('/login/')
+
+    #deal with ajax request submission for facebook/twitter
+    def post(self, request):
+        data = {'result': 'Okay'}
+        return JsonResponse(data)
