@@ -14,15 +14,9 @@
     }
 
     .up {
-        height: 50%;
+        height: 100%;
         width: 100%;
         background-color: #FBFBFB;
-    }
-
-    .down {
-        height: 50%;
-        width: 100%;
-        background-image: linear-gradient(-60deg, #5641db 0%, #1f86ef 100%);
     }
 </style>
 {% endblock %}
@@ -66,7 +60,7 @@
 <div class="up">
     <div id="outPopUp">
         <h1 style="font-weight: 600; color: #95989A; font-size: 72">all</h1>
-        <h3 style="color: #95989A">Welcome {{ username.username }} to your dashboard!</h3>
+        <h3 style="color: #95989A">Welcome {{ username }} to your dashboard!</h3>
 
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
 
@@ -74,6 +68,5 @@
         <a style="color: #95989A" href="/logout">Logout</a>
     </div>
 </div>
-<div class="down">
 </div>
 {% endblock %}
