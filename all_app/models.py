@@ -18,6 +18,7 @@ class UserManager(BaseUserManager):
            # enrichjson= enrichjson,
             FbToken = kwargs.get('FbToken'),
             TwToken = kwargs.get('TwToken'),
+            SecTwToken = kwargs.get('SecTwToken'),
             InToken = kwargs.get('InToken'),
         )
         user.set_password(password)
@@ -39,7 +40,8 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     date_created = models.DateTimeField(default=datetime.now())
     FbToken = models.CharField(max_length=200, default='') #stavimo 200 za svaki slucaj
-    TwToken = models.CharField(max_length=200, default='')
+    TwToken = models.CharField(max_length=500, default='') #Public twitter token needed
+    SecTwToken = models.CharField(max_length=500, default='') #Secret twitter token needed
     InToken = models.CharField(max_length=200, default='')
     objects = UserManager()
     USERNAME_FIELD = 'username'

@@ -18,6 +18,134 @@
         width: 100%;
         background-color: #FBFBFB;
     }
+    .scalable {
+    display: inline-block;
+    zoom: 1;
+    vertical-align: top;
+  }
+
+  .scalable a {
+    background: #c1e6ea 0 color-stop(0.9,#d3f5f6));
+    border-radius: .4em;
+    border: 2px solid #b1d4dc;
+    display: inline-block;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    height: 52px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  }
+
+  .scalable a:hover {
+    background: #c1f0f2 0 color-stop(0.9,#c1f0f2));
+  }
+
+  .scalable a:active {
+    background: #b4d7d8 0 color-stop(0.81,#b4d7d8));
+  }
+
+  .scalable .label {
+    display: inline-block;
+    color: #222;
+    font-size: 24px;
+    line-height: 2.2em;
+    padding: 0 1.5em 0 3.2em;
+  }
+
+  .scalable b.divider {
+    border-left: 2px solid #add1dd;
+    border-right: 2px solid #c6e9ed;
+    height: 100%;
+    left: 3.4em;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: 2;
+  }
+
+  .scalable a:hover > b.divider {
+    border-left: 2px solid #a3d0da;
+    border-right: 2px solid #b8e6eb;
+  }
+
+  .scalable a:active > b.divider {
+    border-left: 2px solid #8fb3b8;
+    border-right: 2px solid #add0d1;
+  }
+
+  .scalable i {
+    position: absolute;
+  }
+
+  .scalable i.raster {
+    background-position: absolute;
+    background-size: 88% auto;
+    height: 100%;
+    left: .9em;
+    top: .5em;
+    width: 2.3em;
+  }
+
+  .scalable i.face {
+    background-image: url(http://public.jm3.net/jm3-vector.png);
+    background-size: 100% auto;
+    border-radius: 2em;
+    height: 2.3em;
+    left: .5em;
+    top: .4em;
+    width: 2.3em;
+  }
+
+  .scalable i.svg {
+    height: 2em;
+    left: .9em;
+    top: .75em;
+    width: 2em;
+  }
+
+  .scalable.dark a {
+    background: #3ea8bb 0;
+    background: #3ea8bb 0 color-stop(0.81,#46d6db));
+    border: 2px solid #1d7285;
+    color: #FFF;
+  }
+
+  .scalable.dark a:hover {
+    background: #2ac8ce 0 color-stop(0.81,#2ac8ce));
+  }
+
+  .scalable.dark a:active {
+    background: #3ea8bb 0 color-stop(0.81,#13b9c1));
+  }
+
+  .scalable.dark a b.divider {
+    border-left: 2px solid #237c8f;
+    border-right: 2px solid #46bfd2;
+  }
+
+  .scalable.light a {
+    background-image: 0 to(#dedede));
+    border: 2px solid #ccc;
+  }
+
+  .scalable.light a:hover {
+    background-image: 0 to(#d0d0d0));
+    border: 2px solid #999;
+  }
+
+  .scalable.light a:active {
+    background-image: 0 to(#d0d0d0));
+    border: 2px solid #777;
+  }
+
+  .scalable.light a b.divider {
+    border-left: 2px solid #ccc;
+    border-right: 2px solid #eee;
+  }
+
+  i.raster {
+      background: transparent url(data:image/png;base64,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) no-repeat 0 0;
+  }
 </style>
 {% endblock %}
 
@@ -54,7 +182,8 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
-
+<br>
+<br>
 
 <div class="up">
     <div id="outPopUp">
@@ -62,7 +191,7 @@
         <h3 style="color: #95989A">Welcome {{ username }} to your dashboard!</h3>
 
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
-
+        <div class='scalable'><a href='/twitter/'><i class='svg'><svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 250 250" xml:space="preserve"><g transform="matrix(1.25,0,0,-1.25,0,203.175)"><g transform="scale(0.1,0.1)"><path d="m 2000,1432.96 c -73.58,-32.64 -152.67,-54.69 -235.66,-64.61 84.7,50.78 149.77,131.19 180.41,227.01 -79.29,-47.03 -167.1,-81.17 -260.57,-99.57 -74.84,79.75 -181.48,129.57 -299.5,129.57 -226.6,0 -410.328,-183.71 -410.328,-410.31 0,-32.16 3.628,-63.48 10.625,-93.51 -341.016,17.11 -643.368,180.47 -845.739,428.72 -35.324,-60.6 -55.5583,-131.09 -55.5583,-206.29 0,-142.36 72.4373,-267.95 182.5433,-341.53 -67.262,2.13 -130.535,20.59 -185.8519,51.32 -0.0391,-1.71 -0.0391,-3.42 -0.0391,-5.16 0,-198.803 141.441,-364.635 329.145,-402.342 -34.426,-9.375 -70.676,-14.395 -108.098,-14.395 -26.441,0 -52.145,2.578 -77.203,7.364 C 276.391,476.219 427.926,357.578 607.48,354.281 467.051,244.219 290.129,178.621 97.8828,178.621 64.7617,178.621 32.0977,180.57 0,184.359 181.586,67.9414 397.27,0 628.988,0 1383.72,0 1796.45,625.238 1796.45,1167.47 c 0,17.79 -0.41,35.48 -1.2,53.08 80.18,57.86 149.74,130.12 204.75,212.41" style="fill:#52ade5;fill-opacity:1;fill-rule:nonzero;stroke:none" /></g></g></svg></i><b class='divider'></b><span class='label'>Log in with Twitter</span></a></div>
         <h6 style="color: #95989A">Start making connections with your social network accounts. <br> You can add it here or later in settings.</h6>
         <a style="color: #95989A" href="/logout">Logout</a>
     </div>

@@ -23,26 +23,5 @@ auth.set_access_token(access_token, access_token_secret)
 ##atoken="asdf-aassdfs"
 #asecret="asdfsadfsdafsdafs"
 global count
-count = 0
-class listener(StreamListener):
 
-    def on_data(self, data):
-        count = 0
-        all_data = json.loads(data)
-        tweetext = all_data.get('text')
-        print(tweetext)
-        count +=1
-        if(count==10):
-            return False
-
-
-
-        #print(all_data)
-        return(True)
-
-    def on_error(self, status):
-        print(status)
-
-twitterStream = Stream(auth, listener())
-twitterStream.sample(async=True)
 #print(twitterStream)

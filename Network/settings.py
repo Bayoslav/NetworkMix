@@ -116,7 +116,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+TWITTER_TOKEN = 'f7fAWeRuKEANYP7xOcy8O1haV'
+TWITTER_SECRET = 'ck98S69p3FzMudnBQ7xJHsY5JsNvx1JJXbfi6eOp6rWrtEJDjS'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
