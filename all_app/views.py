@@ -30,7 +30,7 @@ class listener(StreamListener):
             arrtwt.append(tweetext)
         if(self.num_tweets >= 20):
             #return tweetext
-            sys.exit()
+            print("ohno")
 
 
         #print(all_data)
@@ -133,6 +133,7 @@ class TwitterLogIn(View):
 
 class TwitterReg(View):
     def get(self, request):
+        print("kek")
         username = (request.user)
         obj = User.objects.get(username=username)
         access_token_url = 'https://api.twitter.com/oauth/access_token'
@@ -140,8 +141,10 @@ class TwitterReg(View):
         token.set_verifier(request.GET['oauth_verifier'])
         consumer = oauth.Consumer(settings.TWITTER_TOKEN, settings.TWITTER_SECRET)
         client = oauth.Client(consumer, token)
+        print("TEST\n\n")
         # Step 2. Request the authorized access token from Twitter.
         resp, content = client.request(access_token_url, "GET")
+
         #print(request)
         #print(content)
         print("REQUEST: ", request)
@@ -170,11 +173,16 @@ class TwitterAuth(View):
         access_token_secret = obj.SecTwToken
         auth = tweepy.OAuthHandler(settings.TWITTER_TOKEN, settings.TWITTER_SECRET)
         auth.set_access_token(access_token, access_token_secret)
-        twitterStream = Stream(auth, listener())
-        bc = twitterStream.sample(async=False)
+        api = tweepy.API(auth)
+
+        public_tweets = api.home_timeline(count=40,page=3)
+        #print(public_tweets[0].user)
+
+        #twitterStream = Stream(auth, listener())
+       # bc = twitterStream.sample(async=False)
         print("REQUEST: ", request)
         #print("\nCONTENT: ", content)
         #print(request.GET['oauth_verifier'])
         #print(request.session['request_token'])
         #print(request.GET['oauth_token'])
-        return HttpResponse(arrtwt)
+        return render(request, 'twitterfeed.html', {'tweets' : public_tweets})

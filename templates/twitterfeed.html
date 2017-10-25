@@ -1,0 +1,8 @@
+<html>
+    <p> KEK </p>
+    {% for tweet in tweets %}
+       <h1>{{ tweet.user.name }} : </h1> <h2> {{ tweet.text}} </h2>
+        
+       <br>
+    {% endfor %}
+</html>
